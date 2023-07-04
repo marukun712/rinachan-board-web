@@ -14,14 +14,14 @@ export default function Home() {
   if (emotionRecognitionMode === 'camera') {
     return (
       <div>
-        <Header changeMode={changeEmotionRecognitionMode} />
+        <Header changeEmotionRecognitionMode={changeEmotionRecognitionMode} />
         <FERpage />
       </div>
     )
   } else if (emotionRecognitionMode === 'mic') {
     return (
       <div>
-        <Header changeMode={changeEmotionRecognitionMode} />
+        <Header changeEmotionRecognitionMode={changeEmotionRecognitionMode} />
         <h1>TODO</h1>
       </div>
     )
