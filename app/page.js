@@ -1,6 +1,7 @@
 "use client"
 import Header from "@/components/header"
-import FERpage from "@/components/FERpage"
+import FER from "@/components/FER"
+import SpeechEmotionRecognition from "@/components/SpeechEmotionRecognition"
 import { useState } from "react"
 
 export default function Home() {
@@ -15,14 +16,14 @@ export default function Home() {
     return (
       <div>
         <Header changeEmotionRecognitionMode={changeEmotionRecognitionMode} />
-        <FERpage />
+        <FER />
       </div>
     )
   } else if (emotionRecognitionMode === 'mic') {
     return (
       <div>
         <Header changeEmotionRecognitionMode={changeEmotionRecognitionMode} />
-        <h1>TODO</h1>
+        <SpeechEmotionRecognition />
       </div>
     )
   }
