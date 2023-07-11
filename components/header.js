@@ -5,12 +5,12 @@ export default function Header(props) {
 
     //感情分析モードをカメラに変更
     function changeCameraMode() {
-        props.changeEmotionRecognitionMode('camera')
+        props.changeIsUseCamera(true)
     }
 
     //感情分析モードをマイクに変更
     function changeMicMode() {
-        props.changeEmotionRecognitionMode('mic')
+        props.changeIsUseCamera(false)
     }
 
     //ヘッダーアイコンの表示切替
@@ -26,8 +26,8 @@ export default function Header(props) {
             <div className={active ? "animate-slide-bck-left avater px-4" : "animate-slide-bck-right avater px-4"}>
                 <div className="w-12 h-12 rounded-full">
                     <button onClick={changeCameraMode}>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-12 h-12">
-                            <path stroke-linecap="round" d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-12 h-12">
+                            <path strokeLinecap="round" d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />
                         </svg>
                     </button>
                 </div>
@@ -72,8 +72,8 @@ export default function Header(props) {
                     <h3 className="font-bold text-lg text-center">使い方(usage)</h3>
                     <p className="py-4"><span className="font-bold">璃奈ちゃんボード にっこりん! web版璃奈ちゃんボードへようこそ!</span><br></br>このwebサイトでは以下の2種類の方法で感情分析を行い、ボードの表情が読み取った感情に合わせた表情に変化します。</p>
 
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-12 h-12">
-                        <path stroke-linecap="round" d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-12 h-12">
+                        <path strokeLinecap="round" d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />
                     </svg>
                     <p className="py-4"><span className="font-bold">表情認識モード</span>:webカメラから表情を読み取り、ボードに反映します。</p>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12">

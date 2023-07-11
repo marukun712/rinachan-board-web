@@ -1,10 +1,12 @@
 import * as faceapi from 'face-api.js';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import { useContext } from 'react';
+import { currentExpressions } from '@/app/page';
 
 export default function FERpage() {
-    const [isExpressionsRecognized, setIsExpressionsRecognized] = useState(false);
-    const [expressions, setExpressions] = useState("neutral");
+    const { expressions, setExpressions } = useContext(currentExpressions)
+    const [isExpressionsRecognized, setIsExpressionsRecognized] = useState(false); //顔が認識されているかどうか
 
     useEffect(() => {
         const video = document.getElementById("video");
@@ -46,6 +48,7 @@ export default function FERpage() {
                     var expressions = expressionsArray[0][0]
 
                     setExpressions(expressions)
+
                     setIsExpressionsRecognized(true)
 
                 } catch (err) {
@@ -66,9 +69,7 @@ export default function FERpage() {
     return (
         <div>
             <h1 className='px-10'>{isExpressionsRecognized ? expressions : "表情を認識中..."}</h1>
-
             <video id="video" width={500} height={500} autoPlay muted className='hidden'></video>
-            <img src={`/images/rinachan-board-${expressions}.png`} width={1000} height={1000} alt='rinachan-board' className='m-auto'></img>
-        </div >
+        </div>
     )
 }

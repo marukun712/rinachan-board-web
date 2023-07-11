@@ -3,29 +3,29 @@ import Header from "@/components/header"
 import FER from "@/components/FER"
 import SpeechEmotionRecognition from "@/components/SpeechEmotionRecognition"
 import { useState } from "react"
+import { createContext } from "react";
+
+export const currentExpressions = createContext();
 
 export default function Home() {
-  const [emotionRecognitionMode, setEmotionRecognitionMode] = useState('camera')
+  const [isUseCamera, setIsUseCamera] = useState(true)
+  const [expressions, setExpressions] = useState("neutral")
 
-  function changeEmotionRecognitionMode(mode) {
-    setEmotionRecognitionMode(mode)
+  //感情分析モードの切り替え
+  function changeIsUseCamera(bool) {
+    setIsUseCamera(bool)
   }
 
-  //感情分析モードに応じてページの切り替え
-  if (emotionRecognitionMode === 'camera') {
-    return (
-      <div>
-        <Header changeEmotionRecognitionMode={changeEmotionRecognitionMode} />
-        <FER />
-      </div>
-    )
-  } else if (emotionRecognitionMode === 'mic') {
-    return (
-      <div>
-        <Header changeEmotionRecognitionMode={changeEmotionRecognitionMode} />
-        <SpeechEmotionRecognition />
-      </div>
-    )
-  }
+  return (
+    <div>
+      <currentExpressions.Provider value={{ expressions, setExpressions }}>
+        <Header changeIsUseCamera={changeIsUseCamera} />
 
+        {isUseCamera ? <FER /> : <SpeechEmotionRecognition />}
+
+        <img src={`/images/rinachan-board-${expressions}.png`} width={1000} height={1000} alt='rinachan-board' className='m-auto'></img>
+
+      </currentExpressions.Provider>
+    </div>
+  )
 }
